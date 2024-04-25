@@ -1,0 +1,21 @@
+import plotly.express as px
+import random
+
+# Generate random data
+categories = ['Category A', 'Category B', 'Category C', 'Category D']
+data = [random.randint(1, 100) for _ in categories]
+
+# Create a pie chart using Plotly
+fig = px.pie(
+    names=categories,
+    values=data,
+    title="Random Data Pie Chart",
+    labels=categories,
+    template="plotly",
+    hole=0.4  # Set the hole size for a donut chart effect
+)
+
+fig.update_traces(textinfo='percent+label')  # Show percentage and label on the chart
+
+# Show the interactive chart
+fig.show()
